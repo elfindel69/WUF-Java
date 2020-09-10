@@ -1,9 +1,9 @@
 package country;
 
 public class Country {
-	private String name;
-	private double pts;
-	private int score;
+	protected String name;
+	protected double pts;
+	protected int score;
 	
 	public Country(String name, double pts, int score) {
 		this.setName(name);

@@ -3,7 +3,11 @@ package main;
 import java.util.Scanner;
 
 import country.Country;
+import country.Nation;
 import country.ViewCountry;
+import country.ViewNation;
+import matches.Match;
+import matches.ViewMatches;
 import points.CalcPoints;
 import points.Points;
 import points.ViewPoints;
@@ -52,6 +56,42 @@ public class Main {
 				ct2.setPts(points.getPts2());
 				ViewPoints.viewPoints(ct1, ct2);
 				
+			}
+			//nations
+			if (startMenu == 3) {
+				int natMenu = ViewNation.menuNations(sc);
+				//France
+				if (natMenu == 1) {
+					Nation france = new Nation("France", 302.40, 0, "Europe", "Stade de France", "2018", 10, 3 );
+					ViewNation.viewNation(france);
+					System.out.println("\n World Cup:");
+					System.out.println("appearances: 0");
+					System.out.println("best result: qualifications (2021) \n");
+					System.out.println("European Cup:");
+					System.out.println("appearances: 1");
+					System.out.println("best result: finalist (2019) \n");
+					System.out.println("League of Nations - "+france.getConf() +" :");
+					System.out.println("current League: 1A");
+					System.out.println("best result: N/A \n");
+					char[] results = new char[5];
+					for (int i=0; i < results.length; i++) {
+						results[i] = 'V';
+					}
+					for (int i=0; i < results.length; i++) {
+						System.out.print(results[i]);
+					}
+					System.out.print("\n\n");
+					Match[] tabMatches = new Match[5];
+					tabMatches[0] = new Match("France", 18, "Albania", 9);
+					tabMatches[1] = new Match("France", 23, "Cyprus", 9);
+					tabMatches[2] = new Match("France", 23, "Israel", 9);
+					tabMatches[3] = new Match("France", 23, "Moldova", 16);
+					tabMatches[4] = new Match("France", 23, "Italy", 13);
+					
+					for(int i=0; i < tabMatches.length; i++) {
+						ViewMatches.viewMatches(tabMatches[i]);
+					}
+				}
 			}
 			sc.nextLine();
 			
