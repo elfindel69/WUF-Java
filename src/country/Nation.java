@@ -1,12 +1,12 @@
 package country;
 
 public class Nation extends Country {
-	private String conf;
+	private Conf conf;
 	private String date;
 	private String stadium;
 	private int rWuf; 
 	private int rConf;
-	public Nation(String name, double pts, int score, String conf, String stadium, String date, int rWuf, int rConf) {
+	public Nation(String name, double pts, int score, Conf conf, String stadium, String date, int rWuf, int rConf) {
 		super(name, pts, score);
 		this.conf = conf;
 		this.stadium = stadium;
@@ -15,10 +15,10 @@ public class Nation extends Country {
 		this.rConf = rConf;
 		
 	}
-	public String getConf() {
+	public Conf getConf() {
 		return conf;
 	}
-	public void setConf(String conf) {
+	public void setConf(Conf conf) {
 		this.conf = conf;
 	}
 	public String getDate() {
