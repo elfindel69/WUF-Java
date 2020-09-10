@@ -7,6 +7,7 @@ public class ViewNation {
 	public static int menuNations(Scanner sc) {
 		System.out.println("Nations:");
 		System.out.println("1- France");
+		System.out.println("2- Italy");
 		sc.nextLine();
 		int choice = sc.nextInt();
 		return choice;
