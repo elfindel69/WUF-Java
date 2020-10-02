@@ -1,6 +1,5 @@
 package main;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -43,22 +42,12 @@ public class Main {
 			}
 			//nations
 			if (startMenu == 3) {
-				int confMenu = ViewConf.menuConf(sc);
-				//Europe
+				List<String> lNames = ContMenu.getConfNames();
+				int confMenu = ViewConf.menuConf(sc,lNames);
 				ZoneId utcZone = ZoneId.of("UTC");
+				//Europe
 				if (confMenu == 1) {
-					Connect.testSQL();
-					ResultSet test = Connect.getResultSet();
-					List<Conf> lConf = new ArrayList<Conf>();
-					while (test.next()) {
-						try {
-							lConf.add(new Conf(test.getString("name"), test.getString("adj"), test.getInt("nb_members"), test.getString("doa")));
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-					//Conf europe = new Conf("Europe", "European", 55, "2018");
+					List<Conf> lConf = ContMenu.getConfData(lNames.get(0));
 					for (Conf c : lConf) {
 						ViewConf.viewConf(c);
 					}

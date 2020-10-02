@@ -1,11 +1,15 @@
 package country;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ViewConf {
-	public static int menuConf (Scanner sc) {
+	public static int menuConf (Scanner sc, List<String> lNames) {
 		System.out.println("Confederations:");
-		System.out.println("1- Europe");
+		int id = 1;
+		for (String s : lNames) {
+			System.out.println(id+" - "+s);
+		}
 		sc.nextLine();
 		int choice = sc.nextInt();
 		return choice;
