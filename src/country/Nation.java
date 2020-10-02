@@ -6,8 +6,8 @@ public class Nation extends Country {
 	private String stadium;
 	private int rWuf; 
 	private int rConf;
-	public Nation(String name, double pts, int score, Conf conf, String stadium, String date, int rWuf, int rConf) {
-		super(name, pts, score);
+	public Nation(String name, double pts, Conf conf, String stadium, String date, int rWuf, int rConf) {
+		super(name, pts, 0);
 		this.conf = conf;
 		this.stadium = stadium;
 		this.date = date;

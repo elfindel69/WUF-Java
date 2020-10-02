@@ -1,9 +1,11 @@
 package competition;
 
 public class ViewLeague {
-	public static void viewLeague(String name, String league, String result) {
-		System.out.println(name+" :");
-		System.out.println("current League: "+league);
-		System.out.println("best result: "+ result+"\n");
+
+	public static void viewLeague(League league) {
+		System.out.println(league.getName()+" :");
+		System.out.println("current League: "+league.getLeague());
+		System.out.println("best result: "+ league.getResult()+" - "+ league.getYear() + "\n");
+		
 	}
 }
