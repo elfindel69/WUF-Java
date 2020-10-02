@@ -39,6 +39,7 @@ public class Main {
 				//Europe
 				Conf europe = new Conf("Europe", "European", 54, "2018");
 				ViewConf.viewConf(europe);
+				ZoneId utcZone = ZoneId.of("UTC");
 				ZoneId zoneEurope = ZoneId.of("Europe/Paris");
 				if (confMenu == 1) {
 					int natMenu = ViewNation.menuNations(sc);
@@ -61,28 +62,28 @@ public class Main {
 						System.out.print("\n\n");
 						ArrayList<Match> tabMatches = new ArrayList<Match>();
 						
-						LocalDateTime locDate1 = LocalDateTime.parse("2020-03-06T21:00:00");
-						ZonedDateTime zoneDate1 = ZonedDateTime.of(locDate1, zoneEurope);
+						LocalDateTime locDate1 = LocalDateTime.parse("2020-03-06T20:00:00");
+						ZonedDateTime zoneDate1 = ZonedDateTime.of(locDate1, utcZone);
 						tabMatches.add(new Match("France", 18, "Albania", 9, zoneDate1));
 					
-						LocalDateTime locDate2 = LocalDateTime.parse("2020-02-12T21:00:00");
-						ZonedDateTime zoneDate2 = ZonedDateTime.of(locDate2, zoneEurope);
+						LocalDateTime locDate2 = LocalDateTime.parse("2020-02-12T20:00:00");
+						ZonedDateTime zoneDate2 = ZonedDateTime.of(locDate2, utcZone);
 						tabMatches.add(new Match("France", 23, "Cyprus", 9, zoneDate2));
 						
-						LocalDateTime locDate3 = LocalDateTime.parse("2020-02-07T21:00:00");
-						ZonedDateTime zoneDate3 = ZonedDateTime.of(locDate3, zoneEurope);
+						LocalDateTime locDate3 = LocalDateTime.parse("2020-02-07T20:00:00");
+						ZonedDateTime zoneDate3 = ZonedDateTime.of(locDate3, utcZone);
 						tabMatches.add(new Match("France", 23, "Israel", 9, zoneDate3));
 						
-						LocalDateTime locDate4 = LocalDateTime.parse("2020-01-08T21:00:00");
-						ZonedDateTime zoneDate4 = ZonedDateTime.of(locDate4, zoneEurope);
+						LocalDateTime locDate4 = LocalDateTime.parse("2020-01-08T20:00:00");
+						ZonedDateTime zoneDate4 = ZonedDateTime.of(locDate4, utcZone);
 						tabMatches.add(new Match("France", 23, "Moldova", 16, zoneDate4));
 						
-						LocalDateTime locDate5 = LocalDateTime.parse("2020-01-03T21:00:00");
-						ZonedDateTime zoneDate5 = ZonedDateTime.of(locDate5, zoneEurope);
+						LocalDateTime locDate5 = LocalDateTime.parse("2020-01-03T20:00:00");
+						ZonedDateTime zoneDate5 = ZonedDateTime.of(locDate5, utcZone);
 						tabMatches.add(new Match("France", 23, "Italy", 13, zoneDate5));
 						
 						for(Match item : tabMatches) {
-							ViewMatches.viewMatches(item);
+							ViewMatches.viewMatches(item,zoneEurope);
 						}
 					}
 					
@@ -107,28 +108,28 @@ public class Main {
 						System.out.print("\n\n");
 						Match[] tabMatches = new Match[5];
 						
-						LocalDateTime locDate1 = LocalDateTime.parse("2020-03-06T21:00:00");
-						ZonedDateTime zoneDate1 = ZonedDateTime.of(locDate1, zoneEurope);
+						LocalDateTime locDate1 = LocalDateTime.parse("2020-03-06T20:00:00");
+						ZonedDateTime zoneDate1 = ZonedDateTime.of(locDate1, utcZone);
 						tabMatches[0] = new Match("Italy", 18, "Cyprus", 13, zoneDate1);
 						
-						LocalDateTime locDate2 = LocalDateTime.parse("2020-02-12T21:00:00");
-						ZonedDateTime zoneDate2 = ZonedDateTime.of(locDate2, zoneEurope);
+						LocalDateTime locDate2 = LocalDateTime.parse("2020-02-12T20:00:00");
+						ZonedDateTime zoneDate2 = ZonedDateTime.of(locDate2, utcZone);
 						tabMatches[1] = new Match("Italy", 18, "Albania", 9, zoneDate2);
 						
-						LocalDateTime locDate3 = LocalDateTime.parse("2020-02-07T21:00:00");
-						ZonedDateTime zoneDate3 = ZonedDateTime.of(locDate3, zoneEurope);
+						LocalDateTime locDate3 = LocalDateTime.parse("2020-02-07T20:00:00");
+						ZonedDateTime zoneDate3 = ZonedDateTime.of(locDate3, utcZone);
 						tabMatches[2] = new Match("Italy", 16, "Moldova", 9, zoneDate3);
 						
-						LocalDateTime locDate4 = LocalDateTime.parse("2020-01-08T21:00:00");
-						ZonedDateTime zoneDate4 = ZonedDateTime.of(locDate4, zoneEurope);
+						LocalDateTime locDate4 = LocalDateTime.parse("2020-01-08T20:00:00");
+						ZonedDateTime zoneDate4 = ZonedDateTime.of(locDate4, utcZone);
 						tabMatches[3] = new Match("Italy", 18, "Israel", 13, zoneDate4);
 						
-						LocalDateTime locDate5 = LocalDateTime.parse("2020-01-03T21:00:00");
-						ZonedDateTime zoneDate5 = ZonedDateTime.of(locDate5, zoneEurope);
+						LocalDateTime locDate5 = LocalDateTime.parse("2020-01-03T20:00:00");
+						ZonedDateTime zoneDate5 = ZonedDateTime.of(locDate5, utcZone);
 						tabMatches[4] = new Match("France", 23, "Italy", 13, zoneDate5);
 						
 						for(int i=0; i < tabMatches.length; i++) {
-							ViewMatches.viewMatches(tabMatches[i]);
+							ViewMatches.viewMatches(tabMatches[i], zoneEurope);
 						}
 					}
 				}
