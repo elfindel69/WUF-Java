@@ -1,15 +1,19 @@
 package matches;
 
+import java.time.ZonedDateTime;
+
 public class Match {
 	private String nat1;
 	private String nat2;
 	private int sc1;
 	private int sc2;
-	public Match(String nat1, int sc1, String nat2, int sc2) {
+	private ZonedDateTime date;
+	public Match(String nat1, int sc1, String nat2, int sc2, ZonedDateTime zoneDate1) {
 		this.setNat1(nat1);
 		this.setSc1(sc1);
 		this.setNat2(nat2);
 		this.setSc2(sc2);
+		this.setDate(zoneDate1);
 	}
 	public String getNat1() {
 		return nat1;
@@ -35,5 +39,13 @@ public class Match {
 	public void setSc2(int sc2) {
 		this.sc2 = sc2;
 	}
+	public ZonedDateTime getDate() {
+		return date;
+	}
+	public void setDate(ZonedDateTime date) {
+		this.date = date;
+	}
+	
+	
 
 }

@@ -7,7 +7,7 @@ public class ViewCountry {
 		System.out.println("nom Pays");
 		String name = sc.nextLine();
 		System.out.println("points Pays");
-		int pts = sc.nextInt();
+		double pts = sc.nextDouble();
 		int scoreI = 0;
 		if (scoreB) {
 			sc.nextLine();
