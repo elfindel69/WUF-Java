@@ -66,7 +66,9 @@ public class ContMenu {
 		for (Conf c : lConf) {
 			ViewConf.viewConf(c);
 		}
-		
+		if (confMenu > 1) {
+			++confMenu;
+		}
 		List<String> lNatNames = ContNation.getNatNames(confMenu);
 		int natMenu = ViewNation.menuNations(sc, lNatNames);
 		int natId = natMenu - 1;
@@ -79,13 +81,17 @@ public class ContMenu {
 		List<Cup> lCups = ContCup.getCupData(lNatNames.get(natId));
 		
 		List<League> lLeagues = ContLeague.getLeagueData(lNatNames.get(natId)); 
-		League euLeague = lLeagues.get(0);	
+		League confLeague = null;
+		if (lLeagues != null && lLeagues.size() > 0) {
+			confLeague = lLeagues.get(0);
+		}
+		
 		
 		List<Match> tabMatches = ContMatches.getMatchesData(lNatNames.get(natId));
 		
 		char[] results = ContMatches.calcResults(tabMatches, lNatNames.get(natId));
 		
-		NatPage natPage = new NatPage(nat, lCups, euLeague, tabMatches, results);
+		NatPage natPage = new NatPage(nat, lCups, confLeague, tabMatches, results);
 		ViewNatPage.viewPage(natPage);
 	}
 	

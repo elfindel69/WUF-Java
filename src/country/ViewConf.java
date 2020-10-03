@@ -9,6 +9,7 @@ public class ViewConf {
 		int id = 1;
 		for (String s : lNames) {
 			System.out.println(id+" - "+s);
+			++id;
 		}
 		sc.nextLine();
 		int choice = sc.nextInt();

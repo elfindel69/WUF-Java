@@ -15,8 +15,9 @@ public class ViewNatPage {
 		for (Cup c: page.getlCups()) {
 			ViewCup.viewCup(c);
 		}
-		
-		ViewLeague.viewLeague(page.getLeague());
+		if (page.getLeague() != null) {
+			ViewLeague.viewLeague(page.getLeague());
+		}
 		
 		for (int i=0; i < page.getTabResults().length; i++) {
 			System.out.print(page.getTabResults()[i]);
