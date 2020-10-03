@@ -1,9 +1,23 @@
 package main;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
+import competition.ContCup;
+import competition.ContLeague;
+import competition.Cup;
+import competition.League;
+import country.Conf;
+import country.ContConf;
+import country.ContNation;
 import country.Country;
+import country.Nation;
+import country.ViewConf;
 import country.ViewCountry;
+import country.ViewNation;
+import matches.ContMatches;
+import matches.Match;
 import points.CalcPoints;
 import points.Points;
 import points.ViewPoints;
@@ -40,6 +54,39 @@ public class ContMenu {
 		ct1.setPts(points.getPts1());
 		ct2.setPts(points.getPts2());
 		ViewPoints.viewPoints(ct1, ct2);
+	}
+	
+	public static void viewNations(Scanner sc) throws SQLException {
+		List<String> lNames = ContConf.getConfNames();
+		int confMenu = ViewConf.menuConf(sc,lNames);
+		int confId = confMenu - 1;
+		
+		//Confederation
+		List<Conf> lConf = ContConf.getConfData(lNames.get(confId));
+		for (Conf c : lConf) {
+			ViewConf.viewConf(c);
+		}
+		
+		List<String> lNatNames = ContNation.getNatNames(confMenu);
+		int natMenu = ViewNation.menuNations(sc, lNatNames);
+		int natId = natMenu - 1;
+		
+		//Nation
+		List<Nation> lNat = ContNation.getNatData(lNatNames.get(natId));
+		Nation nat = lNat.get(0);
+		nat.setConf(lConf.get(0));
+		
+		List<Cup> lCups = ContCup.getCupData(lNatNames.get(natId));
+		
+		List<League> lLeagues = ContLeague.getLeagueData(lNatNames.get(natId)); 
+		League euLeague = lLeagues.get(0);	
+		
+		List<Match> tabMatches = ContMatches.getMatchesData(lNatNames.get(natId));
+		
+		char[] results = ContMatches.calcResults(tabMatches, lNatNames.get(natId));
+		
+		NatPage natPage = new NatPage(nat, lCups, euLeague, tabMatches, results);
+		ViewNatPage.viewPage(natPage);
 	}
 	
 	
