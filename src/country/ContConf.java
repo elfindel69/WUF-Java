@@ -43,4 +43,8 @@ public class ContConf {
 		resData.close();
 		return lConf;
 	}
+
+	public static int insertConf(Conf newConf) throws SQLException {
+		return ConfSQL.insertConf(Connect.getConnect(), newConf);
+	}
 }

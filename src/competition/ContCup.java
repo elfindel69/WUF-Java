@@ -28,4 +28,9 @@ public class ContCup {
 		resData.close();
 		return lCup;
 	}
+
+	public static int insertCup(String nation, Cup newCup) throws SQLException {
+		
+		return CupSQL.insertCup(Connect.getConnect(),nation, newCup);
+	}
 }

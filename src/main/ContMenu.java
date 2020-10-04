@@ -8,6 +8,8 @@ import competition.ContCup;
 import competition.ContLeague;
 import competition.Cup;
 import competition.League;
+import competition.ViewCup;
+import competition.ViewLeague;
 import country.Conf;
 import country.ContConf;
 import country.ContNation;
@@ -18,6 +20,7 @@ import country.ViewCountry;
 import country.ViewNation;
 import matches.ContMatches;
 import matches.Match;
+import matches.ViewMatches;
 import points.CalcPoints;
 import points.Points;
 import points.ViewPoints;
@@ -93,6 +96,119 @@ public class ContMenu {
 		
 		NatPage natPage = new NatPage(nat, lCups, confLeague, tabMatches, results);
 		ViewNatPage.viewPage(natPage);
+		sc.nextLine();
+		System.out.println("Continuer: Y/N");
+		String sexit = sc.nextLine();
+		char exit = sexit.charAt(0);
+		if (exit == 'n')
+		{
+			return;
+		}
+		//add Cup
+		System.out.println("Ajout Coupe");
+		addCup(sc, nat.getName());
+		System.out.println("Continuer: Y/N");
+		sexit = sc.nextLine();
+		exit = sexit.charAt(0);
+		if (exit == 'n')
+		{
+			return;
+		}
+		//add League
+		System.out.println("Ajout Ligue");
+		addLeague(sc, nat.getName());
+	}
+	
+	public static void addConf(Scanner sc) throws SQLException
+	{
+		Conf newConf = ViewConf.addConf(sc);
+		int lines = ContConf.insertConf(newConf);
+		if (lines == 1)
+		{
+			System.out.println("insertion successful !");
+		}
+		else
+		{
+			System.out.println("insertion error !");
+		}
+	}
+	
+	public static void addNation(Scanner sc) throws SQLException
+	{
+
+		System.out.println("Ajout nation: ");
+		Nation newNat = ViewNation.addNation(sc);
+		int lines = ContNation.insertNation(newNat);
+		if (lines == 1)
+		{
+			System.out.println("insertion successful: ");
+		}
+		else
+		{
+			System.out.println("insertion error: ");
+		}
+		System.out.println("Continuer: Y/N");
+		String sexit = sc.nextLine();
+		char exit = sexit.charAt(0);
+		if (exit == 'n')
+		{
+			return;
+		}
+		//add Cup
+		System.out.println("Ajout Coupe");
+		addCup(sc, newNat.getName());
+		System.out.println("Continuer: Y/N");
+		sexit = sc.nextLine();
+		exit = sexit.charAt(0);
+		if (exit == 'n')
+		{
+			return;
+		}
+		//add League
+		System.out.println("Ajout Ligue");
+		addLeague(sc, newNat.getName());
+	}
+
+	public static void addCup(Scanner sc, String nation) throws SQLException
+	{
+		Cup newCup = ViewCup.addCup(sc);
+		int lines = ContCup.insertCup(nation, newCup);
+		if (lines == 1)
+		{
+			System.out.println("insertion successful !");
+		}
+		else
+		{
+			System.out.println("insertion error !");
+		}
+	}
+
+	public static void addLeague(Scanner sc, String nation) throws SQLException
+	{
+		League newLeague = ViewLeague.addLeague(sc);
+		int lines = ContLeague.insertLeague(nation, newLeague);
+		if (lines == 1)
+		{
+			System.out.println("insertion successful !");
+		}
+		else
+		{
+			System.out.println("insertion error !");
+		}
+	}
+	
+	public static void addMatch(Scanner sc) throws SQLException
+	{
+		Match newMatch = ViewMatches.addMatch(sc);
+		int lines = ContMatches.insertMatch(newMatch);
+		if (lines == 1)
+		{
+			System.out.println("insertion successful !");
+		}
+		else
+		{
+			System.out.println("insertion error !");
+		}
 	}
 	
 	

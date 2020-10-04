@@ -44,4 +44,8 @@ public class ContNation {
 		resData.close();
 		return lNat;
 	}
+
+	public static int insertNation(Nation newNat) throws SQLException {
+		return NatSQL.insertNation(Connect.getConnect(), newNat);
+	}
 }

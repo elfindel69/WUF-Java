@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import country.Nation;
+
 public class NatSQL {
 
 	private static PreparedStatement statement;
@@ -47,6 +49,22 @@ public class NatSQL {
 			e.printStackTrace();
 		}
         return resData;
+	}
+
+	public static int insertNation(Connection connect, Nation newNat) throws SQLException {
+		statement = connect.prepareStatement("insert into wuf_data.nation () values (null,?,?,?,?,?,?,?)");
+
+        statement.setString(1, newNat.getName());
+        statement.setDouble(2, newNat.getPts());
+        statement.setInt(3, newNat.getConf().getConfId());
+        statement.setString(4, newNat.getStadium());
+        statement.setString(5, newNat.getDate());
+        statement.setInt(6, newNat.getRWuf());
+        statement.setInt(7, newNat.getRConf());
+
+        int res = statement.executeUpdate();
+
+        return res;
 	}
 	
 }

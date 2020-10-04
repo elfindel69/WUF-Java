@@ -9,15 +9,17 @@ public class Match {
 	private int sc1;
 	private int sc2;
 	private ZonedDateTime date;
-	private ZoneId timeZone;
+	private ZoneId timeZoneJava;
+	private String timeZoneNet;
 	
-	public Match(String nat1, int sc1, String nat2, int sc2, ZonedDateTime zoneDate1, ZoneId timeZone) {
+	public Match(String nat1, int sc1, String nat2, int sc2, ZonedDateTime zoneDate1, ZoneId timeZone, String timeZoneNet) {
 		this.setNat1(nat1);
 		this.setSc1(sc1);
 		this.setNat2(nat2);
 		this.setSc2(sc2);
 		this.setDate(zoneDate1);
-		this.setTimeZone(timeZone);
+		this.setTimeZoneJava(timeZone);
+		this.setTimeZoneNet(timeZoneNet);
 	}
 	public String getNat1() {
 		return nat1;
@@ -49,11 +51,17 @@ public class Match {
 	public void setDate(ZonedDateTime date) {
 		this.date = date;
 	}
-	public ZoneId getTimeZone() {
-		return timeZone;
+	public ZoneId getTimeZoneJava() {
+		return timeZoneJava;
 	}
-	public void setTimeZone(ZoneId timeZone) {
-		this.timeZone = timeZone;
+	public void setTimeZoneJava(ZoneId timeZone) {
+		this.timeZoneJava = timeZone;
+	}
+	public String getTimeZoneNet() {
+		return timeZoneNet;
+	}
+	public void setTimeZoneNet(String timeZoneNet) {
+		this.timeZoneNet = timeZoneNet;
 	}
 	
 	

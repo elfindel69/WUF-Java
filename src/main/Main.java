@@ -26,6 +26,21 @@ public class Main {
 			if (startMenu == 3) {
 				ContMenu.viewNations(sc);
 			}
+			//add conf
+			if (startMenu == 4)
+			{
+				ContMenu.addConf(sc);
+			}
+			//add nation
+			if (startMenu == 5)
+			{
+				ContMenu.addNation(sc);
+			}
+			//add match
+			if (startMenu == 6)
+			{
+				ContMenu.addMatch(sc);
+			}
 			sc.nextLine();
 			
 			System.out.println("Quitter ? y/n");

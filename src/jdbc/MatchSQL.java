@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import matches.Match;
 
 public class MatchSQL {
 	private static PreparedStatement statement;
@@ -28,5 +31,19 @@ public class MatchSQL {
 			e.printStackTrace();
 		}
         return resData;
+	}
+
+	public static int insertMatch(Connection connect, Match newMatch) throws SQLException {
+		statement = connect.prepareStatement("insert into wuf_data.matches () values (null,?,?,?,?,?,?,?)");
+		
+		statement.setString(1, newMatch.getNat1());
+		statement.setInt(2, newMatch.getSc1());
+		statement.setString(3, newMatch.getNat2());
+		statement.setInt(4, newMatch.getSc2());
+		statement.setTimestamp(5, Timestamp.valueOf(newMatch.getDate().toLocalDateTime()));
+		statement.setString(6, newMatch.getTimeZoneJava().toString());
+		statement.setString(7, newMatch.getTimeZoneNet());
+		
+		return statement.executeUpdate();
 	}
 }

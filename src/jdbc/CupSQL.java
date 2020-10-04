@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import competition.Cup;
+
 public class CupSQL {
 	private static PreparedStatement statement;
 	
@@ -26,6 +28,19 @@ public class CupSQL {
 			e.printStackTrace();
 		}
         return resData;
+	}
+
+	public static int insertCup(Connection connect, String nation, Cup newCup) throws SQLException {
+		statement = connect.prepareStatement("insert into wuf_data.cup () values (null,?,?,?,?,?)");
+		
+		statement.setString(1, nation);
+		statement.setString(2, newCup.getName());
+        statement.setInt(3,newCup.getNbCups());
+        statement.setString(4, newCup.getResult());
+        statement.setString(5, newCup.getYear());
+		
+		return statement.executeUpdate();
+		
 	}
 
 }

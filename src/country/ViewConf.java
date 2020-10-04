@@ -25,4 +25,19 @@ public class ViewConf {
 		System.out.println("nb of members: "+conf.getNbMembers());
 		
 	}
+
+	public static Conf addConf(Scanner sc) {
+		sc.nextLine();
+		System.out.println("New Confederation:");
+		System.out.println("name: " );
+		String name = sc.nextLine();
+		System.out.println("adj: ");
+		String adj = sc.nextLine();
+		System.out.println("date of creation: ");
+		String year = sc.nextLine();
+		System.out.println("nb of members: ");
+		int nbMembers = sc.nextInt();
+
+		return new Conf(name, adj, nbMembers, year);
+	}
 }

@@ -27,4 +27,9 @@ public class ContLeague {
 		resData.close();
 		return lLeague;
 	}
+
+	public static int insertLeague(String nation, League newLeague) throws SQLException {
+		
+		return LeagueSQL.insertLeague(Connect.getConnect(),nation, newLeague);
+	}
 }

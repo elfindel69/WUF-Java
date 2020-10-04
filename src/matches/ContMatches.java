@@ -55,13 +55,14 @@ public class ContMatches {
 				int score2 = resData.getInt("score_2");
 				String sDate = resData.getString("date_match");
 				String timeZone = resData.getString("timeZone");
+				String timeZone2 = resData.getString("timeZone2");
 				
 				ZoneId zone = ZoneId.of(timeZone);
-				ZoneId utcZone = ZoneId.of("UTC");
+				ZoneId frZone = ZoneId.of("Europe/Paris");
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
 				LocalDateTime locDate = LocalDateTime.parse(sDate, formatter);
-				ZonedDateTime dom = ZonedDateTime.of(locDate, utcZone);
-				lMatches.add(new Match(nat1, score1, nat2,score2, dom, zone ));
+				ZonedDateTime dom = ZonedDateTime.of(locDate, frZone);
+				lMatches.add(new Match(nat1, score1, nat2,score2, dom, zone, timeZone2));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -69,5 +70,10 @@ public class ContMatches {
 		}
 		resData.close();
 		return lMatches;
+	}
+
+	public static int insertMatch(Match newMatch) throws SQLException {
+		
+		return MatchSQL.insertMatch(Connect.getConnect(),newMatch);
 	}
 }

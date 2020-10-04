@@ -1,6 +1,7 @@
 package country;
 
 public class Conf {
+	private int confId;
 	private String name;
 	private String adj;
 	private int nbMembers;
@@ -43,5 +44,13 @@ public class Conf {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public int getConfId() {
+		return confId;
+	}
+
+	public void setConfId(int confId) {
+		this.confId = confId;
 	}
 }
