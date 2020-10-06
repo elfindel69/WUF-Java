@@ -29,13 +29,14 @@ public class ContNation {
 		List<Nation> lNat = new ArrayList<Nation>();
 		while (resData.next()) {
 			try {
+				int id = resData.getInt("id");
 				String name =resData.getString("name"); 
 				double pts = resData.getDouble("pts");
 				String stadium = resData.getString("stadium");
 				String doa = resData.getString("dom");
 				int rWuf = resData.getInt("r_wuf");
 				int rConf  = resData.getInt("r_conf");
-				lNat.add(new Nation(name, pts, null, stadium ,doa, rWuf, rConf ));
+				lNat.add(new Nation(id, name, pts, null, stadium ,doa, rWuf, rConf ));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -63,6 +63,6 @@ public class ViewNation {
 		int rConf = sc.nextInt();
 		sc.nextLine();
 
-		return new Nation(name, pts, conf,stadium, year, rWuf, rConf);
+		return new Nation(0, name, pts, conf,stadium, year, rWuf, rConf);
 	}
 }

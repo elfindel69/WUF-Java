@@ -33,7 +33,7 @@ public class ConfSQL {
 	public static ResultSet getNames(Connection connect) {
 		ResultSet resData = null;
 		try {
-			statement = connect.prepareStatement("select name from wuf_data.conference");
+			statement = connect.prepareStatement("select name from wuf_data.conference order by name");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

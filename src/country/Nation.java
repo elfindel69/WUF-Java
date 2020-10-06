@@ -1,13 +1,15 @@
 package country;
 
 public class Nation extends Country {
+	private int id;
 	private Conf conf;
 	private String date;
 	private String stadium;
 	private int rWuf; 
 	private int rConf;
-	public Nation(String name, double pts, Conf conf, String stadium, String date, int rWuf, int rConf) {
+	public Nation(int id, String name, double pts, Conf conf, String stadium, String date, int rWuf, int rConf) {
 		super(name, pts, 0);
+		this.id = id;
 		this.conf = conf;
 		this.stadium = stadium;
 		this.date = date;
@@ -44,6 +46,12 @@ public class Nation extends Country {
 	}
 	public void setRConf(int rConf) {
 		this.rConf = rConf;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

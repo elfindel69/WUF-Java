@@ -7,7 +7,8 @@ public class Conf {
 	private int nbMembers;
 	private String date;
 	
-	public Conf(String name, String adj, int nbMembers, String date) {
+	public Conf(int id, String name, String adj, int nbMembers, String date) {
+		this.setConfId(id);
 		this.setName(name);
 		this.setAdj(adj);
 		this.setNbMembers(nbMembers);

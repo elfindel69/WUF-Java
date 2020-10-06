@@ -66,33 +66,31 @@ public class ContMenu {
 		
 		//Confederation
 		List<Conf> lConf = ContConf.getConfData(lNames.get(confId));
-		for (Conf c : lConf) {
-			ViewConf.viewConf(c);
-		}
-		if (confMenu > 1) {
-			++confMenu;
-		}
-		List<String> lNatNames = ContNation.getNatNames(confMenu);
+		Conf conf = lConf.get(0);
+		
+		ViewConf.viewConf(conf);
+		
+		List<String> lNatNames = ContNation.getNatNames(conf.getConfId());
 		int natMenu = ViewNation.menuNations(sc, lNatNames);
 		int natId = natMenu - 1;
 		
 		//Nation
 		List<Nation> lNat = ContNation.getNatData(lNatNames.get(natId));
 		Nation nat = lNat.get(0);
-		nat.setConf(lConf.get(0));
+		nat.setConf(conf);
 		
 		List<Cup> lCups = ContCup.getCupData(lNatNames.get(natId));
 		
-		List<League> lLeagues = ContLeague.getLeagueData(lNatNames.get(natId)); 
+		List<League> lLeagues = ContLeague.getLeagueData(nat.getName()); 
 		League confLeague = null;
 		if (lLeagues != null && lLeagues.size() > 0) {
 			confLeague = lLeagues.get(0);
 		}
 		
 		
-		List<Match> tabMatches = ContMatches.getMatchesData(lNatNames.get(natId));
+		List<Match> tabMatches = ContMatches.getMatchesData(nat.getName());
 		
-		char[] results = ContMatches.calcResults(tabMatches, lNatNames.get(natId));
+		char[] results = ContMatches.calcResults(tabMatches, nat.getName());
 		
 		NatPage natPage = new NatPage(nat, lCups, confLeague, tabMatches, results);
 		ViewNatPage.viewPage(natPage);

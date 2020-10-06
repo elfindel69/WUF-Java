@@ -38,6 +38,6 @@ public class ViewConf {
 		System.out.println("nb of members: ");
 		int nbMembers = sc.nextInt();
 
-		return new Conf(name, adj, nbMembers, year);
+		return new Conf(0, name, adj, nbMembers, year);
 	}
 }

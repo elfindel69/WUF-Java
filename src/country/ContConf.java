@@ -30,11 +30,12 @@ public class ContConf {
 		List<Conf> lConf = new ArrayList<Conf>();
 		while (resData.next()) {
 			try {
+				int id = resData.getInt("id");
 				String name =resData.getString("name"); 
 				String adj = resData.getString("adj");
 				int nb = resData.getInt("nb_members");
 				String doa = resData.getString("doa");
-				lConf.add(new Conf(name, adj ,nb , doa ));
+				lConf.add(new Conf(id, name, adj ,nb , doa ));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

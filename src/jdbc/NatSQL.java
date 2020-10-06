@@ -14,7 +14,7 @@ public class NatSQL {
 	public static ResultSet getNames(Connection connect, int confId) throws SQLException {
 		ResultSet resData = null;
 		try {
-			statement = connect.prepareStatement("select name from wuf_data.nation where conf_id = ?");
+			statement = connect.prepareStatement("select name from wuf_data.nation where conf_id = ? order by name");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
