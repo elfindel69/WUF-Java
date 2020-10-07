@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"scores","c":"ViewScores","l":"ViewScores()","url":"%3Cinit%3E()"},{"p":"scores","c":"ViewScores","l":"viewScores(Country, Country)","url":"viewScores(country.Country,country.Country)"}]
