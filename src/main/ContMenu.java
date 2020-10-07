@@ -79,7 +79,7 @@ public class ContMenu {
 		Nation nat = lNat.get(0);
 		nat.setConf(conf);
 		
-		List<Cup> lCups = ContCup.getCupData(lNatNames.get(natId));
+		List<Cup> lCups = ContCup.getCupData(nat.getName());
 		
 		List<League> lLeagues = ContLeague.getLeagueData(nat.getName()); 
 		League confLeague = null;
