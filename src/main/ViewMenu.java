@@ -1,8 +1,17 @@
 package main;
 
 import java.util.Scanner;
-
+/**
+ * Classe d'affichage de menus console
+ * @author elfindel69
+ *
+ */
 public class ViewMenu {
+	/**
+	 * menu principal
+	 * @param sc - Scanner, entrée console
+	 * @return int - action sélectionnée
+	 */
 	static int startMenu(Scanner sc) {
 		System.out.println("Menu:");
 		System.out.println("1. scores...");
